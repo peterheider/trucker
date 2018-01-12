@@ -148,7 +148,7 @@ class CollectionTest extends TruckerTests
     /**
      * Helper function to create a popuplated
      * collection object for testing
-     * 
+     *
      * @param  boolean $setMeta wether or not to set meta data
      * @return Trucker\Responses\Collection
      */
@@ -179,9 +179,9 @@ class CollectionTest extends TruckerTests
 
 
     /**
-     * Testing function to create an array of 
+     * Testing function to create an array of
      * data to test against
-     * 
+     *
      * @return array
      */
     private function getRecordsArray()
@@ -220,9 +220,9 @@ class CollectionTest extends TruckerTests
 
 
     /**
-     * Testing function to create an array of 
+     * Testing function to create an array of
      * meta data to test against
-     * 
+     *
      * @return array
      */
     private function getMetaArray()

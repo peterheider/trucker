@@ -126,7 +126,6 @@ trait GuzzleTestingTrait
 
         //if request can have post / files
         if (!in_array($method, ['GET', 'HEAD', 'TRACE', 'OPTIONS'])) {
-
             //test the post parameters
             $this->assertEquals(
                 $postParams,
@@ -164,7 +163,6 @@ trait GuzzleTestingTrait
                     );
                 }
             }
-
         } //end if request can have post / files
 
         $this->assertEquals(

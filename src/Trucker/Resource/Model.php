@@ -211,18 +211,14 @@ class Model
     {
         //if property contains '_base64'
         if (!(stripos($property, $this->getBase64Indicator()) === false)) {
-
             //if the property IS a file field
             $fileProperty = str_replace($this->getBase64Indicator(), '', $property);
             if (in_array($fileProperty, $this->getFileFields())) {
                 $this->handleBase64File($fileProperty, $value);
             } //end if file field
-
         } else {
-
             $this->properties[$property] = $value;
         }
-
     } //end __set
 
     /**
@@ -274,30 +270,22 @@ class Model
 
         foreach ($attributes as $property => $value) {
             if (!in_array($property, $guarded)) {
-
                 //get the fields on the entity that are files
                 $fileFields = $this->getFileFields();
 
                 //if property contains base64 indicator
                 if (!(stripos($property, $this->getBase64Indicator()) === false)) {
-
                     //get a list of file properties w/o the base64 indicator
                     $fileProperty = str_replace($this->getBase64Indicator(), '', $property);
 
                     //if the property IS a file field, handle appropriatley
                     if (in_array($fileProperty, $fileFields)) {
-
                         $this->handleBase64File($fileProperty, $value);
-
                     } //end if file field
-
                 } else {
-
                     //handle as normal property, but file fields can't be mass assigned
                     if (!in_array($property, $fileFields)) {
-
                         $this->properties[$property] = $value;
-
                     }
                 } //end if-else base64
             } //end if not guarded
@@ -359,7 +347,6 @@ class Model
 
         $this->postRequestCleanUp[] = $output_file;
         $this->{$property} = $output_file;
-
     } //end handleBase64File
 
     /**
@@ -498,7 +485,7 @@ class Model
         QueryResultOrderInterface $resultOrder = null,
         array $getParams = []
     ) {
-        return Collection::fetch(new static , $condition, $resultOrder, $getParams);
+        return Collection::fetch(new static, $condition, $resultOrder, $getParams);
     }
 
     /**
@@ -513,7 +500,6 @@ class Model
         $request = RequestFactory::build();
 
         if ($this->getId() === false) {
-
             //make a CREATE request
             $request->createRequest(
                 Config::get('request.base_uri'),
@@ -522,9 +508,7 @@ class Model
                 [], //no extra headers
                 Config::get('request.http_method_param')
             );
-
         } else {
-
             //make an UPDATE request
             $request->createRequest(
                 Config::get('request.base_uri'),
@@ -551,7 +535,6 @@ class Model
 
         //handle clean response with errors
         if (ResponseInterpreterFactory::build()->invalid($response)) {
-
             //get the errors and set them to our local collection
             $this->errors = ErrorHandlerFactory::build()->parseErrors($response);
 
@@ -613,14 +596,10 @@ class Model
 
         //handle clean response with errors
         if ($interpreter->success($response)) {
-
             return true;
-
         } else if ($interpreter->invalid($response)) {
-
             //get the errors and set them to our local collection
             $this->errors = ErrorHandlerFactory::build()->parseErrors($response);
-
         } //end if-else
 
         return false;

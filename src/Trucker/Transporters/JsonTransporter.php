@@ -32,7 +32,7 @@ class JsonTransporter implements TransporterInterface
     /**
      * Function to convert a response object into an associative
      * array of data
-     * 
+     *
      * @param  GuzzleHttpMessageResponse $response
      * @return array
      */
@@ -44,7 +44,7 @@ class JsonTransporter implements TransporterInterface
     /**
      * Function to parse the response string into an object
      * specific to JSON
-     * 
+     *
      * @param  GuzzleHttpMessageResponse $response
      * @return stdClass
      */

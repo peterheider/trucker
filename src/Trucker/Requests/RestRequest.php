@@ -222,7 +222,6 @@ class RestRequest implements RequestableInterface
             'request.error',
             function (\Guzzle\Common\Event $event) use ($httpStatus, $stopPropagation, $func, $request) {
                 if ($httpStatus == -1 || $event['response']->getStatusCode() == $httpStatus) {
-
                     // Stop other events from firing if needed
                     if ($stopPropagation) {
                         $event->stopPropagation();
@@ -390,15 +389,12 @@ class RestRequest implements RequestableInterface
 
         //handle clean response with errors
         if (ResponseInterpreterFactory::build()->invalid($response)) {
-
             //get the errors and set them to our local collection
             $errors = (array) ErrorHandlerFactory::build()->parseErrors($response);
 
             return new RawResponse(false, $response, $errors);
-
         } //end if
 
         return new RawResponse(true, $response);
-
     } //end rawRequest
 }

@@ -14,7 +14,7 @@ use Illuminate\Container\Container;
 use Trucker\Responses\BaseResponse;
 
 /**
- * Interface to be implemented by classes that are 
+ * Interface to be implemented by classes that are
  * deciphering API responses to determine the success
  * or failure of various requests
  */
@@ -22,15 +22,15 @@ interface ResponseInterpreterInterface
 {
     /**
      * Constructor to setup the interpreter
-     * 
-     * @param Container $app      
+     *
+     * @param Container $app
      */
     public function __construct(Container $app);
 
 
     /**
      * Function to return a boolean value indicating wether
-     * the request was successful or not 
+     * the request was successful or not
      *
      * @param  $response - Trucker response to interpret
      * @return boolean

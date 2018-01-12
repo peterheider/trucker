@@ -45,7 +45,6 @@ abstract class TruckerTests extends PHPUnit_Framework_TestCase
 
         $serviceProvider = new TruckerServiceProvider($this->app);
         $this->app = $serviceProvider->bindClasses($this->app);
-
     }
 
     /**
@@ -111,7 +110,6 @@ abstract class TruckerTests extends PHPUnit_Framework_TestCase
         ];
 
         foreach ($defaultConfig as $key => $value) {
-
             $config->set($key, $value);
 
             if (!array_key_exists($key, $options)) {
@@ -158,7 +156,7 @@ abstract class TruckerTests extends PHPUnit_Framework_TestCase
     /**
      * Test helper function that allows you to simulate
      * that a private or protected property was set within a class
-     *         
+     *
      * @param  Object $class    object to operate on
      * @param  string $property the property to set
      * @param  mixed  $value    the value to set
@@ -176,7 +174,7 @@ abstract class TruckerTests extends PHPUnit_Framework_TestCase
     /**
      * Test helper function that allows you to simulate that a private
      * or protected function was called on a class
-     * 
+     *
      * @param  Object $class  instance of an object to work with
      * @param  string $method the method to call
      * @param  mixed  $value  the arguments to pass to the method
@@ -199,13 +197,13 @@ abstract class TruckerTests extends PHPUnit_Framework_TestCase
      * Determine if two associative arrays are similar
      *
      * Both arrays must have the same indexes with identical values
-     * without respect to key ordering 
-     * 
+     * without respect to key ordering
+     *
      * @param array $a
      * @param array $b
      * @return bool
      */
-    public function arraysAreSimilar ($a, $b)
+    public function arraysAreSimilar($a, $b)
     {
         // if the indexes don't match, return immediately
         if (count(array_diff_assoc($a, $b))) {

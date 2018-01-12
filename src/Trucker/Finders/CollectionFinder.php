@@ -121,7 +121,6 @@ class CollectionFinder
 
             //add the instance to the records array
             $records[] = $instance;
-
         } //end foreach
 
         //create a collection object to return

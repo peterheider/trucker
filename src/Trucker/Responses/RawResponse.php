@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * This file is part of Trucker
@@ -27,21 +27,21 @@ class RawResponse extends BaseResponse
 
     /**
      * Var to hold any errors returned
-     * 
+     *
      * @var array
      */
     private $errors = array();
 
     /**
      * Var to tell if the request was successful
-     * 
+     *
      * @var boolean
      */
     public $success = false;
 
     /**
      * Constructor
-     * 
+     *
      * @param boolean   $successful
      * @param Response  $response
      * @param array     $errors

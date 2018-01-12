@@ -26,7 +26,7 @@ class Response extends BaseResponse
     /**
      * Response object managed by this
      * class
-     * 
+     *
      * @var \Guzzle\Http\Message\Response
      */
     protected $response;
@@ -47,7 +47,7 @@ class Response extends BaseResponse
 
     /**
      * Getter to access the IoC Container
-     * 
+     *
      * @return Container
      */
     public function getApp()
@@ -61,7 +61,7 @@ class Response extends BaseResponse
      * Magic function to pass methods not found
      * on this class down to the guzzle response
      * object that is being wrapped
-     * 
+     *
      * @param  string $method name of called method
      * @param  array  $args   arguments to the method
      * @return mixed

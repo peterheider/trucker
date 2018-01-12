@@ -37,7 +37,7 @@ class UrlGenerator
 
     /**
      * Getter to access the IoC Container
-     * 
+     *
      * @return Container
      */
     public function getApp()

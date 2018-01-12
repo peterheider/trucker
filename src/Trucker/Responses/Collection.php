@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * This file is part of Trucker
@@ -38,7 +38,7 @@ class Collection implements \Iterator
     
     /**
      * Constructor for the collection
-     * 
+     *
      * @param array $givenArray array of objects
      */
     public function __construct($givenArray)
@@ -51,7 +51,7 @@ class Collection implements \Iterator
      * Function to conform with Iterator interface.
      *
      * @see  Iterator
-     * 
+     *
      * @return \Trucker\Resource\Model
      */
     public function rewind()
@@ -64,7 +64,7 @@ class Collection implements \Iterator
      * Function to conform with Iterator interface.
      *
      * @see  Iterator
-     * 
+     *
      * @return \Trucker\Resource\Model
      */
     public function current()
@@ -77,7 +77,7 @@ class Collection implements \Iterator
      * Function to conform with Iterator interface.
      *
      * @see  Iterator
-     * 
+     *
      * @return \Trucker\Resource\Model
      */
     public function key()
@@ -90,7 +90,7 @@ class Collection implements \Iterator
      * Function to conform with Iterator interface.
      *
      * @see  Iterator
-     * 
+     *
      * @return \Trucker\Resource\Model
      */
     public function next()
@@ -103,7 +103,7 @@ class Collection implements \Iterator
      * Function to conform with Iterator interface.
      *
      * @see  Iterator
-     * 
+     *
      * @return \Trucker\Resource\Model
      */
     public function valid()
@@ -114,7 +114,7 @@ class Collection implements \Iterator
 
     /**
      * Function to return the size of the collection
-     * 
+     *
      * @return int size of collection
      */
     public function size()
@@ -125,7 +125,7 @@ class Collection implements \Iterator
 
     /**
      * Function to return the first item of the collection
-     * 
+     *
      * @return \Trucker\Resource\Model
      */
     public function first()
@@ -136,7 +136,7 @@ class Collection implements \Iterator
 
     /**
      * Function to return the last item of the collection
-     * 
+     *
      * @return \Trucker\Resource\Model
      */
     public function last()
@@ -149,7 +149,7 @@ class Collection implements \Iterator
      * Function to convert the collection to an array using
      * each collection elements attributes
      *
-     * @param  string $collectionKey 
+     * @param  string $collectionKey
      * @param  string $metaKey
      * @return array
      */
@@ -181,7 +181,7 @@ class Collection implements \Iterator
      * each collection elements attributes as an array then
      * encoding the array to json
      *
-     * @param  string $collectionKey 
+     * @param  string $collectionKey
      * @param  string $metaKey
      * @return array
      */
