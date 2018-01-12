@@ -8,6 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace Trucker;
 
 use Illuminate\Config\FileLoader;
@@ -200,10 +201,10 @@ class TruckerServiceProvider extends ServiceProvider
     protected function registerConfig(Container $app)
     {
         $this->publishes([
-            __DIR__ . '/../config/trucker.php' => $this->app['path.trucker.config'] . DIRECTORY_SEPARATOR . 'trucker.php'
-        ]);
+            __DIR__ . '/../config/trucker.php' => config_path('trucker.php')
+        ], 'config');
 
-        $this->mergeConfigFrom(__DIR__ . '/../config/trucker.php', 'trucker');
+        $this->mergeConfigFrom(__DIR__ . '/../config/trucker.php', 'config');
 
         return $app;
     }
