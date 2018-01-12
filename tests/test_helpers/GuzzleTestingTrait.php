@@ -37,7 +37,7 @@ trait GuzzleTestingTrait
      * @param  string           $body        HTTP response body
      * @return void
      */
-    public function mockHttpResponse(&$client, $http_status = 200, $headers = array(), $body = '')
+    public function mockHttpResponse(&$client, $http_status = 200, $headers = [], $body = '')
     {
         $mock = new \Guzzle\Plugin\Mock\MockPlugin();
         $mock->addResponse(
@@ -68,7 +68,7 @@ trait GuzzleTestingTrait
      * @param  array  $config config overrides
      * @return Guzzle\Http\Client
      */
-    protected function &initGuzzleRequestTest($config = array())
+    protected function &initGuzzleRequestTest($config = [])
     {
         $this->swapConfig($config);
         Config::setApp($this->app);

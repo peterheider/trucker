@@ -33,7 +33,7 @@ class Collection implements \Iterator
      *
      * @var array
      */
-    public $metaData = array();
+    public $metaData = [];
 
     
     /**
@@ -155,7 +155,7 @@ class Collection implements \Iterator
      */
     public function toArray($collectionKey = null, $metaKey = 'meta')
     {
-        $entities = array();
+        $entities = [];
         foreach ($this->collection as $entity) {
             $entities[] = $entity->attributes();
         }

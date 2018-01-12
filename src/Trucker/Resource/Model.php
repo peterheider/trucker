@@ -89,7 +89,7 @@ class Model
      * Array of instance values
      * @var array
      */
-    protected $properties = array();
+    protected $properties = [];
 
     /**
      * Remote resource's primary key property
@@ -103,7 +103,7 @@ class Model
      *
      * @var array
      */
-    protected $errors = array();
+    protected $errors = [];
 
     /**
      * Comma separated list of properties that can't
@@ -137,7 +137,7 @@ class Model
      *
      * @var array
      */
-    private $postRequestCleanUp = array();
+    private $postRequestCleanUp = [];
 
     /**
      * Filesystem location that temporary files could be
@@ -339,7 +339,7 @@ class Model
         $ext = end($mimeExp);
         $output_file = implode(
             DIRECTORY_SEPARATOR,
-            array($this->getScratchDiskLocation(), uniqid("tmp_{$property}_") . ".$ext")
+            [$this->getScratchDiskLocation(), uniqid("tmp_{$property}_") . ".$ext"]
         );
         $f = fopen($output_file, "wb");
         fwrite($f, $image);
@@ -416,7 +416,7 @@ class Model
     {
         $cantSet = $this->getReadOnlyFields();
 
-        $mutableFields = array();
+        $mutableFields = [];
 
         //set the property attributes
         foreach ($this->properties as $key => $value) {

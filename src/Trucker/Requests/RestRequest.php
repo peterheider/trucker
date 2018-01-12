@@ -80,18 +80,18 @@ class RestRequest implements RequestableInterface
      *                                 contains the HTTP method type sent with a POST
      * @return RequestManager
      */
-    public function createRequest($baseUri, $path, $httpMethod = 'GET', $requestHeaders = array(), $httpMethodParam = null)
+    public function createRequest($baseUri, $path, $httpMethod = 'GET', $requestHeaders = [], $httpMethodParam = null)
     {
         $this->client->setBaseUrl($baseUri);
 
-        if (!in_array(strtolower($httpMethod), array('get', 'put', 'post', 'patch', 'delete', 'head'))) {
+        if (!in_array(strtolower($httpMethod), ['get', 'put', 'post', 'patch', 'delete', 'head'])) {
             throw new Exception("Invalid HTTP method");
         }
 
         $method = strtolower($httpMethod);
         $method = $method == 'patch' ? 'put' : $method; //override patch calls with put
 
-        if ($httpMethodParam != null && in_array($method, array('put', 'post', 'patch', 'delete'))) {
+        if ($httpMethodParam != null && in_array($method, ['put', 'post', 'patch', 'delete'])) {
             $this->request = $this->client->post($path);
             $this->request->setPostField($httpMethodParam, strtoupper($method));
         } else {
@@ -113,7 +113,7 @@ class RestRequest implements RequestableInterface
      * @param  array  $requestHeaders  Any additional headers for the request
      * @return  void
      */
-    public function setHeaders($requestHeaders = array())
+    public function setHeaders($requestHeaders = [])
     {
         foreach ($requestHeaders as $header => $value) {
             $this->request->setHeader($header, $value);
@@ -138,7 +138,7 @@ class RestRequest implements RequestableInterface
      *
      * @param array $params Key value array of post params
      */
-    public function setPostParameters($params = array())
+    public function setPostParameters($params = [])
     {
         foreach ($params as $key => $value) {
             $this->request->setPostField($key, $value);
@@ -151,7 +151,7 @@ class RestRequest implements RequestableInterface
      *
      * @param array $params Key value array of get params
      */
-    public function setGetParameters($params = array())
+    public function setGetParameters($params = [])
     {
         $query = $this->request->getQuery();
         foreach ($params as $key => $val) {
@@ -165,7 +165,7 @@ class RestRequest implements RequestableInterface
      *
      * @param array $params File parameters to set
      */
-    public function setFileParameters($params = array())
+    public function setFileParameters($params = [])
     {
         foreach ($params as $key => $value) {
             $this->request->addPostFile($key, $value);
@@ -291,9 +291,9 @@ class RestRequest implements RequestableInterface
      * @param  array  $headers   Optional headers to use
      * @return \Trucker\Responses\RawResponse
      */
-    public function rawGet($uri, $params = array(), $headers = array())
+    public function rawGet($uri, $params = [], $headers = [])
     {
-        return $this->rawRequest($uri, 'GET', array(), $params, array(), $headers);
+        return $this->rawRequest($uri, 'GET', [], $params, [], $headers);
     }
 
     /**
@@ -306,7 +306,7 @@ class RestRequest implements RequestableInterface
      * @param  array  $headers   Optional headers to use
      * @return \Trucker\Responses\RawResponse
      */
-    public function rawPost($uri, $params = array(), $getParams = array(), $files = array(), $headers = array())
+    public function rawPost($uri, $params = [], $getParams = [], $files = [], $headers = [])
     {
         return $this->rawRequest($uri, 'POST', $params, $getParams, $files, $headers);
     }
@@ -321,7 +321,7 @@ class RestRequest implements RequestableInterface
      * @param  array  $headers   Optional headers to use
      * @return \Trucker\Responses\RawResponse
      */
-    public function rawPut($uri, $params = array(), $getParams = array(), $files = array(), $headers = array())
+    public function rawPut($uri, $params = [], $getParams = [], $files = [], $headers = [])
     {
         return $this->rawRequest($uri, 'PUT', $params, $getParams, $files, $headers);
     }
@@ -336,7 +336,7 @@ class RestRequest implements RequestableInterface
      * @param  array  $headers   Optional headers to use
      * @return \Trucker\Responses\RawResponse
      */
-    public function rawPatch($uri, $params = array(), $getParams = array(), $files = array(), $headers = array())
+    public function rawPatch($uri, $params = [], $getParams = [], $files = [], $headers = [])
     {
         return $this->rawRequest($uri, 'PATCH', $params, $getParams, $files, $headers);
     }
@@ -349,9 +349,9 @@ class RestRequest implements RequestableInterface
      * @param  array  $headers   Optional headers to use
      * @return \Trucker\Responses\RawResponse
      */
-    public function rawDelete($uri, $params = array(), $headers = array())
+    public function rawDelete($uri, $params = [], $headers = [])
     {
-        return $this->rawRequest($uri, 'DELETE', array(), $params, array(), $headers);
+        return $this->rawRequest($uri, 'DELETE', [], $params, [], $headers);
     }
 
     /**
@@ -366,7 +366,7 @@ class RestRequest implements RequestableInterface
      * @param  array  $headers   Optional headers to use
      * @return \Trucker\Responses\RawResponse
      */
-    public function rawRequest($uri, $method, $params = array(), $getParams = array(), $files = array(), $headers = array())
+    public function rawRequest($uri, $method, $params = [], $getParams = [], $files = [], $headers = [])
     {
         $this->request = self::createRequest(
             Config::get('request.base_uri'),

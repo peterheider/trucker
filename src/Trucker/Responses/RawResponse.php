@@ -30,7 +30,7 @@ class RawResponse extends BaseResponse
      *
      * @var array
      */
-    private $errors = array();
+    private $errors = [];
 
     /**
      * Var to tell if the request was successful
@@ -46,7 +46,7 @@ class RawResponse extends BaseResponse
      * @param Response  $response
      * @param array     $errors
      */
-    public function __construct($successful = false, Response $response = null, array $errors = array())
+    public function __construct($successful = false, Response $response = null, array $errors = [])
     {
         $this->success = $successful;
         $this->errors = $errors;
@@ -67,7 +67,7 @@ class RawResponse extends BaseResponse
     {
         if (!method_exists($this, $method)) {
             return call_user_func_array(
-                array($this->response, $method),
+                [$this->response, $method],
                 $args
             );
         }

@@ -93,7 +93,7 @@ class Bootstrapper
      *
      * @return void
      */
-    public function updateConfiguration($folder, array $values = array())
+    public function updateConfiguration($folder, array $values = [])
     {
         // Replace stub values in files
         $files = $this->app['files']->files($folder);
@@ -133,10 +133,10 @@ class Bootstrapper
         $path = $this->app['path.base'] ? $this->app['path.base'].'/' : '';
         $logs = $this->app->bound('path.storage') ? str_replace($this->unifySlashes($path), null, $this->unifySlashes($this->app['path.storage'])) : '.trucker';
 
-        $paths = array(
+        $paths = [
             'config' => '.trucker',
             'logs'   => $logs.'/logs',
-        );
+        ];
 
         foreach ($paths as $key => $file) {
             $filename = $path.$file;

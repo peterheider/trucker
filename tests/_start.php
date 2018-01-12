@@ -67,7 +67,7 @@ abstract class TruckerTests extends PHPUnit_Framework_TestCase
      *
      * @return Mockery
      */
-    protected function getConfig($options = array())
+    protected function getConfig($options = [])
     {
         $config = Mockery::mock('Illuminate\Config\Repository');
         $config->shouldIgnoreMissing();
