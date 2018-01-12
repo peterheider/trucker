@@ -178,7 +178,6 @@ class GetArrayParamsQueryCondition implements QueryConditionInterface
 
         $x = 0;
         foreach ($this->conditions as $condition) {
-
             $query->add(
                 "{$conatiner}[$x][{$property}]",
                 $condition[self::PROPERTY]
@@ -193,7 +192,6 @@ class GetArrayParamsQueryCondition implements QueryConditionInterface
             );
 
             $x++;
-
         } //end foreach $findConditions
 
         if (isset($this->logicalOperator)) {
@@ -223,13 +221,11 @@ class GetArrayParamsQueryCondition implements QueryConditionInterface
 
         $x = 0;
         foreach ($this->conditions as $condition) {
-
             $params["{$conatiner}[$x][{$property}]"] = $condition[self::PROPERTY];
             $params["{$conatiner}[$x][{$operator}]"] = $condition[self::OPERATOR];
             $params["{$conatiner}[$x][{$value}]"] = $condition[self::VALUE];
 
             $x++;
-
         } //end foreach $findConditions
 
         if (isset($this->logicalOperator)) {

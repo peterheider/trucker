@@ -52,7 +52,7 @@ class TruckerServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array('trucker');
+        return ['trucker'];
     }
 
     ////////////////////////////////////////////////////////////////////
@@ -113,7 +113,6 @@ class TruckerServiceProvider extends ServiceProvider
             $fileloader = new FileLoader($app['files'], __DIR__ . '/../config');
 
             return new Repository($fileloader, 'config');
-
         }, true);
 
         // Register factory and custom configurations

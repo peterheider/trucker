@@ -51,7 +51,7 @@ class InstanceFinder
      * @param  array         $getParams   Array of GET parameters to pass
      * @return Trucker\Resource\Model              An instance of the entity requested
      */
-    public function fetch($model, $id, $getParams = array())
+    public function fetch($model, $id, $getParams = [])
     {
         $instance = null;
 

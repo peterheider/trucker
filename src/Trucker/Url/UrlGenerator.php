@@ -37,7 +37,7 @@ class UrlGenerator
 
     /**
      * Getter to access the IoC Container
-     * 
+     *
      * @return Container
      */
     public function getApp()
@@ -55,7 +55,7 @@ class UrlGenerator
      * @param  $options Array of options to replace placeholders with
      * @return string
      */
-    public function getCreateUri($model, $options = array())
+    public function getCreateUri($model, $options = [])
     {
         return $this->getCollectionUri($model, $options);
     }
@@ -70,7 +70,7 @@ class UrlGenerator
      * @param  $options Array of options to replace placeholders with
      * @return string
      */
-    public function getUpdateUri($model, $options = array())
+    public function getUpdateUri($model, $options = [])
     {
         return $this->getInstanceUri($model, $options);
     }
@@ -85,7 +85,7 @@ class UrlGenerator
      * @param  $options Array of options to replace placeholders with
      * @return string
      */
-    public function getDeleteUri($model, $options = array())
+    public function getDeleteUri($model, $options = [])
     {
         return $this->getInstanceUri($model, $options);
     }
@@ -100,7 +100,7 @@ class UrlGenerator
      * @param  $options Array of options to replace placeholders with
      * @return string
      */
-    public function getCollectionUri($model, $options = array())
+    public function getCollectionUri($model, $options = [])
     {
         $uri = $this->getURI($model);
         foreach ($options as $key => $value) {
@@ -120,9 +120,9 @@ class UrlGenerator
      * @param  $options Array of options to replace placeholders with
      * @return string
      */
-    public function getInstanceUri($model, $options = array())
+    public function getInstanceUri($model, $options = [])
     {
-        $uri = implode("/", array($this->getURI($model), ':id'));
+        $uri = implode("/", [$this->getURI($model), ':id']);
         foreach ($options as $key => $value) {
             $uri = str_replace($key, $value, $uri);
         }

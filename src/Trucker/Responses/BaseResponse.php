@@ -43,5 +43,4 @@ class BaseResponse
     {
         $this->response = $response;
     }
-
-} 
+}

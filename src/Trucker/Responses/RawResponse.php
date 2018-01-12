@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * This file is part of Trucker
@@ -27,26 +27,26 @@ class RawResponse extends BaseResponse
 
     /**
      * Var to hold any errors returned
-     * 
+     *
      * @var array
      */
-    private $errors = array();
+    private $errors = [];
 
     /**
      * Var to tell if the request was successful
-     * 
+     *
      * @var boolean
      */
     public $success = false;
 
     /**
      * Constructor
-     * 
+     *
      * @param boolean   $successful
      * @param Response  $response
      * @param array     $errors
      */
-    public function __construct($successful = false, Response $response = null, array $errors = array())
+    public function __construct($successful = false, Response $response = null, array $errors = [])
     {
         $this->success = $successful;
         $this->errors = $errors;
@@ -67,7 +67,7 @@ class RawResponse extends BaseResponse
     {
         if (!method_exists($this, $method)) {
             return call_user_func_array(
-                array($this->response, $method),
+                [$this->response, $method],
                 $args
             );
         }
