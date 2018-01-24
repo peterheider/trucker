@@ -26,17 +26,17 @@ interface RequestableInterface
 
     public function &getClient();
 
-    public function createRequest($baseUri, $path, $httpMethod = 'GET', $requestHeaders = array(), $httpMethodParam = null);
+    public function createRequest($baseUri, $path, $httpMethod = 'GET', $requestHeaders = [], $httpMethodParam = null);
 
-    public function setHeaders($requestHeaders = array());
+    public function setHeaders($requestHeaders = []);
 
     public function setBody($body, $contentType = null);
 
-    public function setPostParameters($params = array());
+    public function setPostParameters($params = []);
 
-    public function setGetParameters($params = array());
+    public function setGetParameters($params = []);
 
-    public function setFileParameters($params = array());
+    public function setFileParameters($params = []);
 
     public function setModelProperties(Model $model);
 

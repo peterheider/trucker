@@ -21,7 +21,7 @@ interface QueryConditionInterface
     /**
      * Constructor, likely never called in implementation
      * but rather through the service provider
-     * 
+     *
      * @param Container $app
      */
     public function __construct(Container $app);
@@ -30,15 +30,15 @@ interface QueryConditionInterface
     /**
      * Function to create a new instance that should
      * be setup with the IoC Container etc
-     * 
+     *
      * @return QueryConditionInterface
      */
     public function newInstance();
 
 
     /**
-     * Function to add a query condition 
-     * 
+     * Function to add a query condition
+     *
      * @param string $property The field the condition operates on
      * @param string $operator The operator (=, <, >, <= and so on)
      * @param string $value    The value the condition should match
@@ -48,10 +48,10 @@ interface QueryConditionInterface
 
 
     /**
-     * Function to set the logical operator for the 
-     * combination of any conditions that have been passed to the 
+     * Function to set the logical operator for the
+     * combination of any conditions that have been passed to the
      * addCondition() function
-     * 
+     *
      * @param string $operator
      * @return  void
      */
@@ -61,7 +61,7 @@ interface QueryConditionInterface
     /**
      * Function to get the string representing
      * the AND logical operator
-     * 
+     *
      * @return string
      */
     public function getLogicalOperatorAnd();
@@ -70,7 +70,7 @@ interface QueryConditionInterface
     /**
      * Function to get the string representing
      * the OR logical operator
-     * 
+     *
      * @return string
      */
     public function getLogicalOperatorOr();
@@ -79,7 +79,7 @@ interface QueryConditionInterface
     /**
      * Function to add all the conditions that have been
      * given to the class to a given request object
-     * 
+     *
      * @param Guzzle\Http\Message\Request $request Request passed by reference
      * @return  void
      */

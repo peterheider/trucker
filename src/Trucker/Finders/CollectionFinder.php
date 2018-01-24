@@ -97,7 +97,7 @@ class CollectionFinder
         $data = $response->parseResponseToData();
 
         //make an array to hold results
-        $records = array();
+        $records = [];
 
         //figure out wether a collection key is used
         $collection_key = Config::get('resource.collection_key');
@@ -121,7 +121,6 @@ class CollectionFinder
 
             //add the instance to the records array
             $records[] = $instance;
-
         } //end foreach
 
         //create a collection object to return
@@ -130,7 +129,7 @@ class CollectionFinder
         // if there was a collection_key, put any extra data that was returned
         // outside the collection key in the metaData attribute
         if (isset($collection_key)) {
-            $collection->metaData = array_diff_key($data, array_flip((array) array($collection_key)));
+            $collection->metaData = array_diff_key($data, array_flip((array) [$collection_key]));
         }
 
         return $collection;

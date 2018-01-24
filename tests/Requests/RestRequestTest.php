@@ -307,7 +307,6 @@ class RestRequestTest extends TruckerTests
         $mockRequest = m::mock('Guzzle\Http\Message\Request');
 
         foreach ($shouldReceive as $sr) {
-
             $mr = $mockRequest->shouldReceive($sr['method']);
 
             if (array_key_exists('args', $sr)) {

@@ -60,7 +60,7 @@ class InstanceFinderTest extends TruckerTests
 
     /**
      * Helper function to get commonly used testing data
-     * 
+     *
      * @return array
      */
     private function getTestOptions()
@@ -83,10 +83,10 @@ class InstanceFinderTest extends TruckerTests
 
 
     /**
-     * Function to mock a request for us and 
+     * Function to mock a request for us and
      * expect test data from our getTestOptions() function
-     * 
-     * @param  array $options 
+     *
+     * @param  array $options
      * @return void
      */
     private function setupIndividualTest($options = [])

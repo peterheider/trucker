@@ -12,12 +12,12 @@ class ModelTest extends TruckerTests
     public function testAppMake()
     {
         $t = $this->app->make('trucker.model');
-        $this->assertEquals($t->attributes(), array());
+        $this->assertEquals($t->attributes(), []);
     }
 
     public function testFacade()
     {
-        $this->assertEquals(Trucker::attributes(), array());
+        $this->assertEquals(Trucker::attributes(), []);
     }
 
     public function testSimplePropertyGettersAndSetters()
